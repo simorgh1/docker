@@ -16,24 +16,23 @@ Following services are defined
 
 - Consul
 
-    Default port: 8500
-    https://hub.docker.com/_/consul
+    - Default port: 8500
+    - https://hub.docker.com/_/consul
 - Vault
 
-    Default port: 8200
-    How to install Vault (https://www.bogotobogo.com/DevOps/Docker/Docker-Vault-Consul.php)
+    - Default port: 8200
+    - How to install Vault (https://www.bogotobogo.com/DevOps/Docker/Docker-Vault-Consul.php)
 - Vault-ui
 
-    Default port: 8000
-    
+    - Default port: 8000    
 - Elasticsearch
 
-    Default port elasticsearch: 9200
-    https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
+    - Default port elasticsearch: 9200
+    - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 - Kibana
 
-    Default port kibana: 5601
-    https://www.elastic.co/guide/en/kibana/current/docker.html
+    - Default port kibana: 5601    
+    - https://www.elastic.co/guide/en/kibana/current/docker.html
 - Mailhog
 
     - Mailserver mockup for developers (https://github.com/mailhog/MailHog)
@@ -42,3 +41,9 @@ Following services are defined
 
     - Blob storage service
     - https://github.com/minio/minio
+
+
+## Startup & Tear down
+
+    - docker-compose up -d
+    - docker-compose down
