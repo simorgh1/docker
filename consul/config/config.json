@@ -1,0 +1,10 @@
+{
+    "datacenter": "local",
+    "data_dir": "/consul/data",
+    "log_level": "DEBUG",
+    "log_file": "/consul/data/consul.log",
+    "node_name": "consul",
+    "server": true,
+    "ui": true,
+    "bootstrap": true
+}
