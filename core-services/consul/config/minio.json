@@ -1,0 +1,11 @@
+{
+	"Service": {
+        "Name": "minio",
+        "Address": "minio",
+        "Port": 9000,
+		"Tags": [ 
+			"minio" ,
+			"core.local"
+		]
+    }
+}

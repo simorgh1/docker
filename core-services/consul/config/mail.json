@@ -1,0 +1,11 @@
+{
+	"Service": {
+        "Name": "mail",
+        "Address": "mail",
+        "Port": 8025,
+		"Tags": [ 
+			"mail" ,
+			"core.local"
+		]
+    }
+}

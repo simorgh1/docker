@@ -1,0 +1,11 @@
+{
+	"Service": {
+        "Name": "vault-ui",
+        "Address": "vault-ui",
+        "Port": 8000,
+		"Tags": [ 
+			"vault" ,
+			"core.local"
+		]
+    }
+}

@@ -1,0 +1,103 @@
+version: '3.7'
+services:
+    consul:
+        image: consul:latest
+        ports:
+          - "8500:8500"
+          - "8600:8600/udp"
+        volumes:
+          - .\consul\config:/consul/config
+          - .\consul\data:/consul/data
+          - .\consul\log:/consul/log
+        environment:
+          - CONSUL_BIND_INTERFACE=eth0
+        networks:
+          - bridge
+        container_name: consul    
+
+    vault:
+        container_name: vault
+        image: vault
+        links:
+            - consul:consul
+        depends_on:
+            - consul
+        ports:
+            - "8200:8200"
+        volumes:
+            - .\vault\config:/config
+            - .\vault\_data:/data
+        cap_add:
+            - IPC_LOCK
+        command: server -config=/config/vault.hcl
+        networks: 
+            - bridge
+
+    vault-ui:
+        container_name: vault-ui
+        image: djenriquez/vault-ui
+        ports:
+            - "8000:8000"
+        links:
+            - vault:vault
+        environment:
+            NODE_TLS_REJECT_UNAUTHORIZED: 0
+            VAULT_URL_DEFAULT: http://vault:8200            
+        networks: 
+            - bridge       
+
+    elasticsearch:
+        image: elasticsearch:6.5.2
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        volumes:            
+            - ./elastic/backups:/usr/share/elasticsearch/backups
+            - ./elastic/data:/usr/share/elasticsearch/data
+            - ./elastic/log:/var/log/elasticsearch
+        container_name: elasticsearch        
+        environment:
+            - node.name=elasticsearch
+            - discovery.type=single-node
+            - cluster.name=docker-cluster
+        networks:
+            - bridge
+    kibana:
+        image: kibana:6.5.2
+        ports:
+            - "5601:5601"
+        networks:
+            - bridge
+        container_name: kibana
+        environment:
+            - SERVER_NAME=kibana.local
+            - ELASTICSEARCH_URL=http://elasticsearch:9200    
+        depends_on:
+            - elasticsearch
+
+    mail:
+        image: mailhog/mailhog
+        ports:
+            - "1025:1025"
+            - "8025:8025"
+        container_name: mail    
+        networks:
+            - bridge
+
+    minio:
+        image: minio/minio
+        ports:
+            - "9000:9000"            
+        volumes:            
+            - ./minio/data:/data
+        container_name: minio
+        entrypoint:
+            - minio
+            - server
+            - /data    
+        networks:
+            - bridge
+
+networks:
+    bridge:
+        driver: bridge

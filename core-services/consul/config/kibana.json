@@ -1,0 +1,23 @@
+{
+	"Service": {
+        "Name": "kibana",
+        "Address": "kibana",
+        "Port": 5601,
+		"Tags": [ 
+			"kibana" ,
+			"core.local"
+		],
+		"Check": {
+			"name": "kibana health check",
+			"http": "http://kibana:5601/api/status",
+			"tls_skip_verify": false,
+			"method": "GET",    
+			"interval": "10s",
+			"timeout": "1s"			
+		},
+		"Weights": {
+			  "Passing": 10,
+			  "Warning": 1
+			}		
+    }
+}
