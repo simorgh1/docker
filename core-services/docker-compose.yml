@@ -1,7 +1,7 @@
 version: '3.7'
 services:
     consul:
-        image: consul:latest
+        image: my/consul
         ports:
           - "8500:8500"
           - "8600:8600/udp"
