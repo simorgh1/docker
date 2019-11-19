@@ -17,6 +17,8 @@ docker-compose up -d
 
 This docker compose file mountes the elasticsearch.yml configuration file. The benegit is that you could modify and customize it for exampe to support repository path that is used for taking snapshots.
 
+## Elasticsearch snapshot
+
 Follow the instructions in the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html) in order to create a repository and then take a snapshot.
 
 Keep in mind that an initial snapshot is created pro repository and the following snapshots are based on incremental data, also only all changed indicies are added to the new snapshot. In addition you could create a snapshot for defined indicies.
