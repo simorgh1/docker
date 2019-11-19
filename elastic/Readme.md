@@ -66,3 +66,36 @@ GET /contents/_search
 }
 ```
 
+## Copying an Index to a new Index
+
+Copying an index is performed by [_reindex api](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html).
+Reindexing should be planned, because the destination index should not be updated by other process during reindexing, otherwise it can be canceled and then you have to resume reindexing.
+Better to use a new index as the target index which is not known to the application and after completion it could be made availabe for example by asigning it to an existing alias.
+
+```
+POST _reindex?wait_for_completion=false
+{
+  "source": {
+    "index": "contents",
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "range": {
+              "modifiedAt": {
+                "gte": "2017-01-01||/M",
+                "lte": "2017-01-31||/M"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "dest": {
+    "index": "contentsNew",
+    "op_type": "create"
+  },
+  "conflicts": "proceed"
+}
+```
