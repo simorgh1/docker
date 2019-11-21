@@ -4,7 +4,7 @@
 ## Running elasticsearch from command line
 
 ```
-docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch
+docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.4.2
 ```
 
 ## Elastic & Kibana using docker compose
