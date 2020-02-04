@@ -14,13 +14,13 @@ Please update the run-pihole script and use your TZ and WEBPASSWORD env variable
 Start the default docker-machine if not already started
 
 ```
-PS C:\Pi-hole\docker-machine start default
+PS C:\Pi-hole> docker-machine start default
 ```
 
 Connect to the default machine and make the run-pihole script executeable, after that run the script:
 
 ```
-PS C:\Pi-hole\docker-machine ssh
+PS C:\Pi-hole> docker-machine ssh
 docker@default:~$ chmod +x /c/pi-hole/run-pihole.sh
 docker@default:~$ ./c/pi-hole/run-pihole.sh
 
@@ -29,21 +29,21 @@ docker@default:~$ ./c/pi-hole/run-pihole.sh
 You could run the script from windows, once it is executable:
 
 ```
-PS C:\Pi-hole\docker-machine ssh default /c/pi-hole/run-pihole.sh
+PS C:\Pi-hole> docker-machine ssh default /c/pi-hole/run-pihole.sh
 ```
 
 #### Dashboard
 Open dashboard in your browser:
 
 ```
-PS C:\Pi-hole\start http://$(docker-machine ip default)/admin/
+PS C:\Pi-hole> start http://$(docker-machine ip default)/admin/
 
 ```
 
 For the case you want to reset the password, please run the following command inside the container:
 
 ```
-PS C:\Pi-hole\docker exec -it pihole pihole -a -p
+PS C:\Pi-hole> docker exec -it pihole pihole -a -p
 ```
 
 Browsing the web is faster with Pi-hole installation and using the dashboard, there are plenty of information for the current status, managing the black/white lists and long term statistics.
@@ -56,7 +56,7 @@ After installation, in Windows, open your network adapter settings and set the i
 For testing, run the following command:
 
 ```
-PS C:\Pi-hole\Resolve-DnsName www.google.com
+PS C:\Pi-hole> nslookup www.google.com
 ```
 
-If your network adapter setting for DNS server is correct, you should have a valid response and Pi-hole ip address as the DNS server.
+If your network adapter setting for DNS server is correct, you should have a valid response and Pi-hole ip address as the configured DNS server.
