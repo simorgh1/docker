@@ -7,9 +7,9 @@ Pi-hole is an ad blocker, it serves as the DNS server and blocks all domains fro
 
 #### Setup
 
-*I am using docker toolbox and VirtualBox in Windows 10 home.*
+*I am using [docker toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads) in Windows 10 home.*
 
-Please update the script and use your TZ and WEBPASSWORD env variables.
+Please update the run-pihole script and use your TZ and WEBPASSWORD env variables.
 
 Start the default docker-machine if not already started
 
@@ -17,12 +17,13 @@ Start the default docker-machine if not already started
 PS C:\Pi-hole\docker-machine start default
 ```
 
-Connect to the default machine and make it executeable, after that run the script:
+Connect to the default machine and make the run-pihole script executeable, after that run the script:
 
 ```
 PS C:\Pi-hole\docker-machine ssh
 docker@default:~$ chmod +x /c/pi-hole/run-pihole.sh
 docker@default:~$ ./c/pi-hole/run-pihole.sh
+
 ```
 
 You could run the script from windows, once it is executable:
