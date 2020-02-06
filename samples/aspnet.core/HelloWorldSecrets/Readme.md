@@ -52,3 +52,13 @@ PS C:\HellowroldSecrets\.k8s> kubectl delete cm app-configuration
 PS C:\HellowroldSecrets\.k8s> kubectl delete secret db-passwords
 
 ```
+
+#### Redeployment
+
+##### Configuration
+
+For the case that configuration data changed, just update them in the deployment, and apply the deployment.
+
+##### Secrets
+
+If secrets are changed, then you need to re-create the secrets and delete the pod, in order to be re-created!, but if you would read the secrets out of the mounted path db-passwords, and the application reads them from that path, then the changes are available to the running pod at-once.
