@@ -1,13 +1,13 @@
-#### HelloWorld aspnet.core with ConfigMap
+#### HelloWorld aspnet.core with Secrets
 
-This sample reads the appsettings.json and secrets from kubernetes ConfigMap
+This sample reads the appsettings.json and secrets from kubernetes ConfigMap.
+
 Application configuration is stored in the config map, and passwords are stored in the secrets, both item types are set to environment variables. passwords are also mounted into a readonly mountPath just as example.
 
 Step 1: Build the docker image
 
 ```
 PS C:\HellowroldSecrets\src> docker build -t helloworld-secrets:dev .
-
 ```
 
 Step 2: Deploy the appsettings.json to kubernetes ConfigMap:
@@ -57,7 +57,7 @@ PS C:\HellowroldSecrets\.k8s> kubectl delete secret db-passwords
 
 ##### Configuration
 
-For the case that configuration data changed, just update them in the deployment, and apply the deployment.
+For the case that configuration data changed, just update them in the deployment file, and apply the deployment again.
 
 ##### Secrets
 
