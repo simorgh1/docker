@@ -36,12 +36,6 @@ You could scale host containers either by adding --scale to the previous command
 PS C:\Source\ansible\> docker-compose scale host=3
 ```
 
-Stop the ansible containers by:
-
-```
-PS C:\Source\ansible\> docker-compose down
-```
-
 ### Configure ssh
 
 Start ssh service on each host:
@@ -90,4 +84,12 @@ ansible_host_1 | SUCCESS => {
     "changed": false,
     "ping": "pong"
 }
+```
+
+#### Cleanup
+
+Stop the ansible containers by:
+
+```
+PS C:\Source\ansible\> docker-compose down
 ```
