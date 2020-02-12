@@ -4,11 +4,11 @@ Ansible is an open-source software provisioning, configuration management, and a
 
 If you have a Windows environment and want to learn or test ansible, you need a Linux environment, since there is no Windows version available as of now.
 
-The Ansible could be of course installed in WSL Ubuntu, but how about an environment, where there is a controller, which is the machine with ansible installed, and some hosts where ansible is going to run playbooks, and there are all in the same network and the names are resolvable by the controller?
+The Ansible could be of course installed in WSL Ubuntu, but how about an environment, where there is a controller, which is the machine with ansible installed, and some hosts where ansible is going to run playbooks, and there are all in the same network and the container names are resolvable by the controller?
 
-This is exactly what the following docker-compose is doing, it creats the ansible controller container and host containers which are all based on ubuntu 18.04 and run them in the same network.
+This is exactly what the following docker-compose is doing, it creats the ansible controller container and host containers which are all based on ubuntu 18.04 and runs them in the same network.
 
-It means all services are resolveable by theire names, for example
+It means all containers are resolved by theire names, for example
 controller container will be ansible_controller and the host containers whill be ansible_host_1. The host container could be scalled up using docker-compose.
 
 All components required in the containers for running ansible playbooks are pre-installed, there are some configurations that needs to be done manually.
@@ -16,22 +16,30 @@ All components required in the containers for running ansible playbooks are pre-
 ### Prepare the environment
 You need docker be installed, if you have Windows 10 home edition, then please install docker toolbox.
 
-Build the docker images:
+#### Running the ansible containers
+
+If you made any changes to the docker files, use the build compose file:
 
 ```
- PS C:\Source\ansible\> docker-compose build
+ PS C:\Source\ansible\> docker-compose -f .\docker-compose-build.yml up
 ```
 
-Then start the containers
+Otherwise just start the containers:
 
 ```
-PS C:\Source\ansible\> docker-compose up -d
+PS C:\Source\ansible\> docker-compose up
 ```
 
 You could scale host containers either by adding --scale to the previous command or do the following
 
 ```
 PS C:\Source\ansible\> docker-compose scale host=3
+```
+
+Stop the ansible containers by:
+
+```
+PS C:\Source\ansible\> docker-compose down
 ```
 
 ### Configure ssh
