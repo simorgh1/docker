@@ -16,7 +16,4 @@ RUN chmod 644 /etc/ssh/sshd_config
 COPY ssh/start-sshd.sh .
 RUN chmod +x start-sshd.sh
 
-# reset password, not production!
-RUN passwd -d root
-
 CMD ["/lib/systemd/systemd"]        
