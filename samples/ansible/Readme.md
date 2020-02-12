@@ -16,7 +16,7 @@ All components required in the containers for running ansible playbooks are pre-
 ### Prepare the environment
 You need docker be installed, if you have Windows 10 home edition, then please install docker toolbox.
 
-#### Running the ansible containers
+### Running the ansible containers
 
 If you made any changes to the docker files, use the build compose file:
 
@@ -24,7 +24,7 @@ If you made any changes to the docker files, use the build compose file:
  PS C:\Source\ansible\> docker-compose -f .\docker-compose-build.yml up
 ```
 
-Otherwise just start the containers:
+Otherwise just start the containers using docker hub images:
 
 ```
 PS C:\Source\ansible\> docker-compose up
