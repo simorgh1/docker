@@ -1,4 +1,4 @@
-#### Self-contained aspnet.core mvc in Linux
+#### Self-contained aspnet.core mvc for Linux runtime
 
 A Self-contained publish, targets a certain .NET Core runtime identifier [RID Catalog](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog) and could be usefull to reduce the size of the docker image.
 
