@@ -1,11 +1,11 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:latest AS base
 WORKDIR /app
 
 LABEL author="Bahram Maravandi"
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:latest AS build
 WORKDIR /src
 COPY ["helloWorld.csproj", "/src"]
 RUN dotnet restore "helloWorld.csproj"
