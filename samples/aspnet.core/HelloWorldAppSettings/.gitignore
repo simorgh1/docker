@@ -8,7 +8,7 @@ project.json.old
 **/wwwroot/app/**/*.map
 
 #remove node_modules copied into wwwroot
-**/wwwroot/lib
+## **/wwwroot/lib
 **/wwwroot/libs/*
 
 ## Ignore Visual Studio temporary files, build results, and
