@@ -1,5 +1,2 @@
-tasks:
-  - init: echo "Init ..."
-    command: echo "A Command!!!"
 image:
   file: .gitpod.Dockerfile
